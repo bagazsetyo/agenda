@@ -16,7 +16,7 @@ CRUD detail agenda
 
 #   Installation
 
-Create a Database Table in Postgresql with name agenda
+Create a Database Table in Postgresql with name jadwal
 
 Open Code Editor → Terminal.
 
@@ -34,7 +34,7 @@ Edit the .env file like this,
   DB_CONNECTION = pgsql
   DB_HOST = 127.0.0.1 // change to Host your database
   DB_PORT = 5432
-  DB_DATABASE = agenda // change to the name of the database table that you created
+  DB_DATABASE = jadwal // change to the name of the database table that you created
   DB_USERNAME = postgres // change to be your database username, default root
   DB_PASSWORD = postgres // change to your databse password, null default 
   ```
