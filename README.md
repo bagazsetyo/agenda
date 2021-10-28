@@ -38,6 +38,9 @@ Edit the .env file like this,
   DB_USERNAME = postgres // change to be your database username, default root
   DB_PASSWORD = postgres // change to your databse password, null default 
   ```
+## NOTE
+
+Untuk databases ada di root project (sejajar dengan file .env)
 
 ## License
 
