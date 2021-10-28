@@ -40,7 +40,7 @@ Edit the .env file like this,
   ```
 ## NOTE
 
-Untuk databases ada di root project (sejajar dengan file .env)
+Untuk databases ada di root project (sejajar dengan file .env) dengan nama jadwal.sql
 
 ## License
 
