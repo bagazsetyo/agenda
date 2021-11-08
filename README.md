@@ -148,4 +148,16 @@
     @method ada beberapa bagian 
     1. @method('delete') => khusus untuk hapus data
     2. @method('put') => khusus untuk update data
-    @csrf => token untuk (create, update, delete)
+    3. @csrf => token untuk (create, update, delete)
+**route**
+- basic membuat route 
+    ```
+    Route::resource('lveling','LevelingController');
+    ```
+    atau
+    ```
+    Route::resource([
+        'lveling','LevelingController',
+        'lveling2','Leveling2Controller',
+    ]);
+    ```
