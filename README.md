@@ -125,4 +125,27 @@
     @endsection
     ```
     *isi konenten di dalam @section('content') -- @endsection
-- 
+- looping data dari databases
+    ```
+        @foreach ($items as $item)
+        <tr>
+            <td>{{ $item->id }}</td>
+            <td>{{ $item->level_school }}</td>
+            <td>{{ $item->score }}</td>
+            <td>{{ $item->note }}</td>
+            <td>
+                <form action="{{ route('admin.schoollevelreading.destroy',$item->id) }}">
+                @csrf
+                @method('delete')
+                <a href="{{ route('admin.schoollevelreading.edit',$item->id) }}" class="btn btn-warning">edit</a>
+                <button class="btn btn-danger">hapus</button>
+                </form>
+            </td>
+        </tr>
+        @endforeach
+    ```
+    * note
+    @method ada beberapa bagian 
+    1. @method('delete') => khusus untuk hapus data
+    2. @method('put') => khusus untuk update data
+    @csrf => token untuk (create, update, delete)
