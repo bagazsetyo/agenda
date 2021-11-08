@@ -1,47 +1,46 @@
-![image](https://github.com/bagazsetyo/agenda/blob/main/agenda.png)
+#   Requirement
+ - PHP 7.4 / Laragon versi terbaru
+ - composer versi 2
 
-#   Jadwal Agenda
-Aplikasi jadwal agenda menggunakan jquery sehingga tidak perlu reload page untuk crud nya di bangun dengan menggunakan 
- - Laravel 7
- - Postgresql 14
+#   Tutorial Singkat
+**Structure Folder**
+- App\Model => Penghubung antara Laravel dan Databases
+- App\Http\Controllers => Logic
+- Databses\Migration => membuat table dalam databases
+- Resource\View
+  - includes => Component seperti Navbar, sidebar, footer, script, style, dll
+  - layouts => tempat menyatukan file antara includes dan pages
+  - page => file file yang akan di tampilan di layar
+- route => url website
+
+**Model**
+- create model 
+    ```
+    php artisan make:model <nama model>
+    ```
+    *ex
+    ```
+    php artisan make:model SchoolLevelReading
+    ```
+    *note awalan harus kapital
+- Isi dalam model
+    ```
+    protected $table = 'tb_school_level_reading';
+
+    protected $fillable = [
+        'level_school',
+        'score',
+        'note'
+    ];
+    ```
+    *isi model wajib ada dua itu, untuk nama table ($table), nama filde yang nanti di buat di databases ($fillable)
  
-Library tambahan 
- - Jquery 3
- - Bootstrap 5
- - izitoast 
-
-**Features**
-CRUD agenda
-CRUD detail agenda
-
-#   Installation
-
-Create a Database Table in Postgresql with name jadwal
-
-Open Code Editor → Terminal.
-
-In Terminal, navigate to the extracted agenda folder.
-  ```$ cd agenda```
-  
-Enter these commands one by one ,
-  ```
-  $ composer install
-  $ cp .env.example .env
-  $ php artisan key:generate
-  ```
-Edit the .env file like this,
-  ```
-  DB_CONNECTION = pgsql
-  DB_HOST = 127.0.0.1 // change to Host your database
-  DB_PORT = 5432
-  DB_DATABASE = jadwal // change to the name of the database table that you created
-  DB_USERNAME = postgres // change to be your database username, default root
-  DB_PASSWORD = postgres // change to your databse password, null default 
-  ```
-## NOTE
-
-Untuk databases ada di root project (sejajar dengan file .env) dengan nama jadwal.sql
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+**Migration**
+- Create Databases
+    ```
+    php artisan make:migration <nama untuk file> --create=<nama tabel>
+    ```
+    *example 
+    ```
+    php artisan make:migration create_tb_school_level_reading_table --create=tb_school_level_reading
+    ```
