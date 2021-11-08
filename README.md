@@ -44,3 +44,85 @@
     ```
     php artisan make:migration create_tb_school_level_reading_table --create=tb_school_level_reading
     ```
+- Isi dalam migration
+    ```
+    ...
+            $table->string('level_school');
+            $table->string('score');
+            $table->longText('note');
+            $table->softDeletes();
+    ...
+    ```
+    *tambahkan column seperti contoh di antara 
+    ```
+    $table->id();
+    <isi>
+    $tbale->timestamps();
+    ```
+- menjalankan file migrasi 
+    ```
+    php artisan migrate
+    ```
+
+**controller**
+- Membuat Controller
+    ```
+    php artisan make:controller <nama controller> -r
+    ```
+    *untuk nama controller harus di awali huruf kapital dan di akhiri tulisan controller
+    *ex
+    ```
+    php artisan make:controller Admin\SchoolLevelReadingController -r
+    ```
+    *menambahkan *Admin\* bertujuan untuk menginisialisasikan berarti dia akan di buat di folder *Admin*
+- mengarahkan ke file view
+    example pada function index
+    ```
+    return view('pages.admin.schoollevelreading.index');
+    ```
+    *note berarti file berada di dalam folder pages/admin/schoollevelreading/index.blade.php
+- memanggil model dalam controller
+    - langkah 1
+    ```
+    use App\Models\SchoolLevelReading;
+    ```
+    gunakan di bawah namespace
+    - langkah 2
+    ```
+    $items = SchoolLevelReading::all();
+    ```
+    macam macam fungsi di model
+        1. SchoolLevelReading::all() => memanggil semua data
+        2. SchoolLevelReading::get() => memanggil semua data
+        3. SchoolLevelReading::first() => memanggil data pertama
+        4. SchoolLevelReading::where('id',1)->get() => memanggil data dengan kondisi
+        5. SchoolLevelReading::where('id',1)->first() => memanggil 1 data dengan kondisi id =1
+        6. SchoolLevelReading::findOrFail(1) => memanggil data dengan id = 1 
+        7. SchoolLevelReading::findOrFail(1)->delete() => menghapus data dengan id = 1
+- menampilkan data di view
+    ```
+        $items = SchoolLevelReading::all();
+        return view('pages.admin.schoollevelreading.index')->with([
+            'items' => $items
+        ]);
+    ```
+**view**
+- membuat file view
+    wajib di akhiri dengan .blade.php
+    ```
+    index.blade.php
+    ```
+- menampilakn layout yang sudah saya sediakan
+    ```
+    @extends('layouts.layouts')
+
+    @section('title', 'School Level Reading')
+
+    @section('content')
+        
+        <isi content apapun disini>
+        
+    @endsection
+    ```
+    *isi konenten di dalam @section('content') -- @endsection
+- 
